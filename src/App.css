@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  line-height: normal;
+  color: #fff;
+  background-color: #252C3F;
+}
+
+.Content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.button-left {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  z-index: 99;
+  background-color: transparent;
+}
+
+.button-right {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  z-index: 99;
+  background-color: transparent;
+  margin-left: 50%;
+}
