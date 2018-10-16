@@ -58,6 +58,7 @@
 }
 
 .nexus-screen {
+  color: black;
   position: absolute;
   z-index: 99;
   background-color: white;
@@ -74,4 +75,20 @@
   margin-top: 66px;
   left: 0;
   right: 0;
+}
+
+.characters-counter {
+  color: #EA8859;
+}
+
+.app-title-container {
+  margin-top: 20px;
+}
+
+.app-icon {
+  width: 60px;
+}
+
+.app-title {
+  font-size: 18px;
 }

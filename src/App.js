@@ -9,8 +9,11 @@ class App extends Component {
     super(props);
     this.handleNextStep = this.handleNextStep.bind(this);
     this.handlePreviousStep = this.handlePreviousStep.bind(this);
+    this.handleTitleChanges = this.handleTitleChanges.bind(this);
     this.state = {
-      step: 0
+      step: 0,
+      appTitle: 'Nombres de perros, gatos, mascotas y más animales',
+      appDescription: 'Esta es una aplicación que tiene como objetivo ayudarte a encontrar el nombre ideal para tu mascota.'
     };
   }
 
@@ -23,6 +26,13 @@ class App extends Component {
   handlePreviousStep() {
     this.setState(prevState => ({
       step: prevState.step > 0 ? prevState.step - 1 : 0
+    }));
+  }
+
+  handleTitleChanges() {
+    const title = document.getElementsByName('appTitleInput')[0].value;
+    this.setState(() => ({
+      appTitle: title
     }));
   }
 
@@ -110,11 +120,15 @@ class App extends Component {
                 Playground
               </p>
               <div className="form-group text-left">
-                 <label>Title</label>
-                 <input type="text" className="form-control" id="title" />
+                 <label>
+                    Title <span className="characters-counter">{this.state.appTitle.length}/50</span>
+                 </label>
+                 <input type="text" value={this.state.appTitle} className="form-control" onChange={this.handleTitleChanges} name="appTitleInput" />
                </div>
               <div className="form-group text-left">
-                 <label>Description</label>
+                 <label>
+                    Description <span className="characters-counter">{this.state.appDescription.length}/4000</span>
+                 </label>
                  <textarea className="form-control" id="description" rows="7"></textarea>
                </div>
             </div>
@@ -122,7 +136,16 @@ class App extends Component {
               <div className="nexus-container">
                 <img src={nexus} className="nexus" />
               </div>
-              <div className="nexus-screen"></div>
+              <div className="nexus-screen">
+                <div className="row app-title-container">
+                  <div className="col col-lg-3 col-md-3">
+                    <img src="https://lh3.googleusercontent.com/fxSiAXDvooor8GdGtlGtwmfT2NFuM9QCtkgh69RIBu4C50idtNGTyrLgaPS3724C8xq4=s360-rw" className="app-icon" />
+                  </div>
+                  <div className="col col-lg-9 col-md-9 text-left">
+                    <span className="app-title" dangerouslySetInnerHTML={{__html: this.state.appTitle}} ></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>) : ''}
