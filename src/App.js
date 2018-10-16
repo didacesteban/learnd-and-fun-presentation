@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './bootstrap.min.css';
 import nexus from './Nexus_6.png';
+import menu from './menu.png';
+import screenshots from './screenshots.png';
 
 class App extends Component {
 
@@ -10,6 +12,7 @@ class App extends Component {
     this.handleNextStep = this.handleNextStep.bind(this);
     this.handlePreviousStep = this.handlePreviousStep.bind(this);
     this.handleTitleChanges = this.handleTitleChanges.bind(this);
+    this.handleDescriptionChanges = this.handleDescriptionChanges.bind(this);
     this.state = {
       step: 0,
       appTitle: 'Nombres de perros, gatos, mascotas y más animales',
@@ -33,6 +36,13 @@ class App extends Component {
     const title = document.getElementsByName('appTitleInput')[0].value;
     this.setState(() => ({
       appTitle: title
+    }));
+  }
+
+  handleDescriptionChanges() {
+    const description = document.getElementsByName('appDescriptionInput')[0].value;
+    this.setState(() => ({
+      appDescription: description
     }));
   }
 
@@ -129,7 +139,7 @@ class App extends Component {
                  <label>
                     Description <span className="characters-counter">{this.state.appDescription.length}/4000</span>
                  </label>
-                 <textarea className="form-control" id="description" rows="7"></textarea>
+                 <textarea className="form-control" value={this.state.appDescription} rows="7" onChange={this.handleDescriptionChanges} name="appDescriptionInput"></textarea>
                </div>
             </div>
             <div className="col col-lg-6 col-md-6">
@@ -137,12 +147,23 @@ class App extends Component {
                 <img src={nexus} className="nexus" />
               </div>
               <div className="nexus-screen">
+                <div>
+                  <img src={menu} className="menu-image" />
+                </div>
                 <div className="row app-title-container">
                   <div className="col col-lg-3 col-md-3">
                     <img src="https://lh3.googleusercontent.com/fxSiAXDvooor8GdGtlGtwmfT2NFuM9QCtkgh69RIBu4C50idtNGTyrLgaPS3724C8xq4=s360-rw" className="app-icon" />
                   </div>
                   <div className="col col-lg-9 col-md-9 text-left">
                     <span className="app-title" dangerouslySetInnerHTML={{__html: this.state.appTitle}} ></span>
+                  </div>
+                </div>
+                <div>
+                  <img src={screenshots} className="screenshots-image" />
+                </div>
+                <div className="row">
+                  <div className="col col-lg-12 col-md-12 text-left app-description-container">
+                    <span className="app-description" dangerouslySetInnerHTML={{__html: this.state.appDescription}} ></span>
                   </div>
                 </div>
               </div>

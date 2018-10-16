@@ -92,3 +92,19 @@
 .app-title {
   font-size: 18px;
 }
+
+.app-description-container {
+  margin-left: 5px;
+}
+
+.app-description {
+  font-size: 16px;
+}
+
+.menu-image {
+  width: 384px;
+}
+
+.screenshots-image {
+  width: 384px;
+}
