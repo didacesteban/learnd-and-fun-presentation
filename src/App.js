@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import './bootstrap.min.css';
+import nexus from './Nexus_6.png';
 
 class App extends Component {
 
@@ -28,9 +30,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="button-left" onClick={this.handlePreviousStep}></div>
+        {this.state.step < 8 ? (<div className="button-left" onClick={this.handlePreviousStep}></div>) : ''}
 
-        <div className="button-right" onClick={this.handleNextStep}></div>
+        {this.state.step < 8 ? (<div className="button-right" onClick={this.handleNextStep}></div>) : ''}
 
         {this.state.step === 0 ? (<div className="Content">
           <p className="title">
@@ -47,7 +49,7 @@ class App extends Component {
 
         {this.state.step === 2 ? (<div className="Content">
           <p className="title">
-            ¿Cómo se usa HTML?
+            ¿Cómo se escribe HTML?
           </p>
           <div>
               &lt;b&gt; <b>negrita</b> &lt;/b&gt;
@@ -94,10 +96,34 @@ class App extends Component {
 
         {this.state.step === 7 ? (<div className="Content">
           <p className="title">
-            Siguiente paso 
+            Siguiente paso
           </p>
           <div>
-              https://thetool.io/2017/how-to-use-html-emoji-googleplay
+              https://pickaso.com/2016/html-emojis-ficha-app-google-play
+          </div>
+        </div>) : ''}
+
+        {this.state.step === 8 ? (<div className="Content-split">
+          <div className="row">
+            <div className="col col-lg-6 col-md-6 text-center">
+              <p className="title">
+                Playground
+              </p>
+              <div className="form-group text-left">
+                 <label>Title</label>
+                 <input type="text" className="form-control" id="title" />
+               </div>
+              <div className="form-group text-left">
+                 <label>Description</label>
+                 <textarea className="form-control" id="description" rows="7"></textarea>
+               </div>
+            </div>
+            <div className="col col-lg-6 col-md-6">
+              <div className="nexus-container">
+                <img src={nexus} className="nexus" />
+              </div>
+              <div className="nexus-screen"></div>
+            </div>
           </div>
         </div>) : ''}
 
