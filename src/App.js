@@ -92,7 +92,29 @@ class App extends Component {
             Jerarquía
           </p>
           <div>
-              &lt;u&gt; &lt;b&gt; <u><b> negrita y subrayado </b></u>  &lt;/b&gt; &lt;/u&gt;
+              &lt;u&gt;
+              <br/>
+                <span className="margin-mark-u">
+                  <u>subrayado</u>
+                </span>
+                <br/>
+                <span className="margin-mark-b">
+                  &lt;b&gt;
+                </span>
+                <br/>
+                  <span className="margin-mark-text">
+                    <u><b> negrita y subrayado </b></u>
+                  </span>
+                <br/>
+                <span className="margin-mark-b">
+                  &lt;/b&gt;
+                </span>
+                <br/>
+                <span className="margin-mark-u">
+                  <u>subrayado</u>
+                </span>
+              <br/>
+              &lt;/u&gt;
           </div>
         </div>) : ''}
 

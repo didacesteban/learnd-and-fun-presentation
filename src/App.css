@@ -108,3 +108,15 @@
 .screenshots-image {
   width: 384px;
 }
+
+.margin-mark-b {
+  margin-left: 50px;
+}
+
+.margin-mark-u {
+  margin-left: 200px;
+}
+
+.margin-mark-text {
+  margin-left: 350px;
+}
