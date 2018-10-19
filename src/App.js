@@ -13,6 +13,10 @@ class App extends Component {
     this.handlePreviousStep = this.handlePreviousStep.bind(this);
     this.handleTitleChanges = this.handleTitleChanges.bind(this);
     this.handleDescriptionChanges = this.handleDescriptionChanges.bind(this);
+    this.addNewBoldTag = this.addNewBoldTag.bind(this);
+    this.addNewUnderlineTag = this.addNewUnderlineTag.bind(this);
+    this.addNewItalicTag = this.addNewItalicTag.bind(this);
+    this.addNewEmoji = this.addNewEmoji.bind(this);
     this.state = {
       step: 0,
       appTitle: 'Nombres de perros, gatos, mascotas y más animales',
@@ -45,6 +49,35 @@ class App extends Component {
       appDescription: description
     }));
   }
+
+  addNewBoldTag() {
+    const description = this.state.appDescription += '<b> your text here </b>';
+    this.setState(() => ({
+      appDescription:  description
+    }));
+  }
+
+  addNewUnderlineTag() {
+    const description = this.state.appDescription += '<u> your text here </u>';
+    this.setState(() => ({
+      appDescription:  description
+    }));
+  }
+
+  addNewItalicTag() {
+    const description = this.state.appDescription += '<i> your text in bold here </i>';
+    this.setState(() => ({
+      appDescription:  description
+    }));
+  }
+
+  addNewEmoji() {
+    const description = this.state.appDescription += '😎';
+    this.setState(() => ({
+      appDescription:  description
+    }));
+  }
+
 
   render() {
     return (
@@ -151,17 +184,45 @@ class App extends Component {
               <p className="title">
                 Playground
               </p>
+              <br/>
               <div className="form-group text-left">
-                 <label>
+                <div className="text-center">
+                  <button className="btn btn-info" onClick={this.addNewBoldTag}>
+                    <b>B</b>
+                  </button>
+                  &nbsp;
+                  <button className="btn btn-info" onClick={this.addNewUnderlineTag}>
+                    <u>U</u>
+                  </button>
+                  &nbsp;
+                  <button className="btn btn-info" onClick={this.addNewItalicTag}>
+                    <i>i</i>
+                  </button>
+                  &nbsp;
+                  <button className="btn btn-info" onClick={this.addNewEmoji}>
+                    😎
+                  </button>
+                </div>
+                <br/><br/>
+                 <label className="title-inputs">
                     Title <span className="characters-counter">{this.state.appTitle.length}/50</span>
                  </label>
                  <input type="text" value={this.state.appTitle} className="form-control" onChange={this.handleTitleChanges} name="appTitleInput" />
                </div>
               <div className="form-group text-left">
-                 <label>
+                 <label className="title-inputs">
                     Description <span className="characters-counter">{this.state.appDescription.length}/4000</span>
                  </label>
                  <textarea className="form-control" value={this.state.appDescription} rows="7" onChange={this.handleDescriptionChanges} name="appDescriptionInput"></textarea>
+               </div>
+               <div className="text-center">
+                 <button className="btn btn-info">
+                   Copy Title to clipboard
+                 </button>
+                 &nbsp;
+                 <button className="btn btn-info">
+                   Copy Description to clipboard
+                 </button>
                </div>
             </div>
             <div className="col col-lg-6 col-md-6">

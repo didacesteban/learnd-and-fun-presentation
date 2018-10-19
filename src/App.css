@@ -97,6 +97,11 @@
   margin-left: 5px;
 }
 
+.title-inputs {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .app-description {
   font-size: 16px;
 }
@@ -119,4 +124,14 @@
 
 .margin-mark-text {
   margin-left: 350px;
+}
+
+.btn-info {
+  border: 1px solid #EA8859 !important;
+  background-color: #EA8859 !important;
+}
+
+.btn-info:hover {
+  border: 1px solid #EA8846 !important;
+  background-color: #EA8846 !important;
 }
